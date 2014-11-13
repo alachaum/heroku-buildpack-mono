@@ -83,7 +83,9 @@ if [ -d "$BUILD_DIR/_PublishedWebsites/" ]; then
   conditional_download ${DEPENDENCY_S3_BUCKET_PATH}/xsp-${XSP_VERSION}.tar.gz ${XSP_CACHE_LOCATION}
   cp -r ${XSP_CACHE_LOCATION}/xsp .
   cp -r ${XSP_CACHE_LOCATION}/xsp/lib/mono/gac/* ./mono/lib/mono/gac/
-
+  
+  apt-get install libssl-dev
+  
   NGINX_CACHE_LOCATION=${CACHE_DIR}/nginx-{NGINX_VERSION}
   conditional_download ${DEPENDENCY_S3_BUCKET_PATH}/nginx-${NGINX_VERSION}.tar.gz ${NGINX_CACHE_LOCATION}
   mkdir -p ${BUILD_DIR}/nginx
